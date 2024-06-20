@@ -1,0 +1,56 @@
+# include <iostream>
+using namespace std;
+
+template <typename T>
+class Stack {
+    private:
+    T arr[50];
+    int top;
+    public:
+    Stack(): top(-1){}
+      
+      void push(T val){
+        if (top>=49){
+        cout<<"stack overflow"<<endl;
+        }else{
+            arr[++top]=val;
+        }
+      }
+      
+      T pop(){
+        if(top<0){
+            cout<<"stack underflow"<<endl;
+            return 0;
+            }else{
+                return arr[top--];
+            }
+      }
+};
+template <typename T>
+void printArray(T arr[],int size){
+	for(int i=0;i<size;i++){
+		cout<<arr[i]<<" ";
+		
+	}
+}
+
+
+
+
+      int main(){
+      	int arr[]={1,23,41,56};
+      		
+		string arr1[]={"I","am","next","to","you"};
+		printArray(arr,7);
+		printArray(arr1,4);
+        Stack <int> intStack;
+        Stack <string> charStack;
+        intStack.push(10);
+        intStack.push(20);
+        charStack.push("hello");
+        charStack.push("world");
+        cout<<intStack.pop()<<endl;
+        cout<<charStack.pop()<<endl;
+        return 0;
+
+      }
